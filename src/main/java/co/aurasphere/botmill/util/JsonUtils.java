@@ -5,10 +5,6 @@ import java.util.Date;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.thub.ml.util.CalendarSerializer;
-import com.thub.ml.util.DateToLongJsonDeserializer;
-import com.thub.ml.util.EnumLowercaseSerializer;
-
 public class JsonUtils {
 
 	private static Gson gson;

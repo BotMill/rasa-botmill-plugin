@@ -3,8 +3,6 @@ package co.aurasphere.botmill.util;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.thub.ml.util.ReplyUtils;
-
 /**
  * Just a collection of utilities for reply/responses
  * @author Alvin
