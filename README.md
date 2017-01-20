@@ -2,4 +2,4 @@
 
 # RASA-BotMill - RASA NLU/NLP Plugin for BotMill Libraries
 
-This is still under construction. Target Completion: End of February 2017.
+

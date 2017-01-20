@@ -42,6 +42,9 @@ import co.aurasphere.botmill.rasa.RasaBotMillContext;
 import co.aurasphere.botmill.rasa.outgoing.model.RasaConnectionConfig;
 
 
+/**
+ * The Class NetworkUtils.
+ */
 public class NetworkUtils {
 	
 	/**
@@ -80,7 +83,6 @@ public class NetworkUtils {
 	/**
 	 * Post json message broadcast.
 	 *
-	 * @param input the input
 	 * @return the string
 	 */
 	public static String getStatus() {
