@@ -1,4 +1,4 @@
-package co.aurasphere.botmill.rasa.objects;
+package co.aurasphere.botmill.rasa.incoming.model;
 
 import java.io.Serializable;
 

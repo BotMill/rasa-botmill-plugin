@@ -1,14 +1,15 @@
-package co.aurasphere.botmill.rasa.objects;
+package co.aurasphere.botmill.rasa.outgoing.model;
 
 import java.io.Serializable;
 
-public class Query implements Serializable {
+public class RasaConnectionConfig implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	private String protocol;
 	private String host;
 	private String port;
-	private String queryText;
+	private String token;
+	
 	public String getProtocol() {
 		return protocol;
 	}
@@ -27,12 +28,20 @@ public class Query implements Serializable {
 	public void setPort(String port) {
 		this.port = port;
 	}
-	public String getQueryText() {
-		return queryText;
+	public String getToken() {
+		return token;
 	}
-	public void setQueryText(String queryText) {
-		this.queryText = queryText;
+	public void setToken(String token) {
+		this.token = token;
 	}
 	
+	@Override
+	public String toString() {
+		if(port != null || protocol != null) {
+			return this.host;
+		}else {
+			return this.protocol + this.host + this.port;
+		}
+	}
 	
 }

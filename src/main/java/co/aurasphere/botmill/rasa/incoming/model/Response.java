@@ -1,12 +1,10 @@
-package co.aurasphere.botmill.rasa.objects;
+package co.aurasphere.botmill.rasa.incoming.model;
 
 import java.io.Serializable;
 import java.util.List;
 
 public class Response implements Serializable{
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	private String text;
 	private List<Entity> entity;
