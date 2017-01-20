@@ -110,7 +110,7 @@ public class NetworkUtils {
 		try {
 			httpResponse = httpClient.execute(request);
 		} catch (Exception e) {
-			logger.error("Error during HTTP connection to Kik: ", e);
+			logger.error("Error during HTTP connection to RASA: ", e);
 		} finally {
 			try {
 				httpClient.close();

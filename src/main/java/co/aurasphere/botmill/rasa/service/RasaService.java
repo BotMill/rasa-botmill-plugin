@@ -41,7 +41,7 @@ public class RasaService {
 	 * @param query the query
 	 * @return the response
 	 */
-	public synchronized static Response sendParseRequest(String query) {
+	public static Response sendParseRequest(String query) {
 		Query q = new Query();
 		q.setQuery(query);
 		String response = NetworkUtils.postParse(q);
@@ -56,8 +56,10 @@ public class RasaService {
 	 * @param data the data
 	 * @return the response
 	 */
-	public synchronized static Response sendTrainRequest(Object data) {
-		return null;
+	public static Response sendTrainRequest(Object data) {
+		String response = NetworkUtils.postTrain(data);
+		Response resp = JsonUtils.fromJson(response, Response.class);
+		return resp;
 		
 	}
 	
@@ -66,8 +68,10 @@ public class RasaService {
 	 *
 	 * @return the status
 	 */
-	public synchronized static Response getStatus() {
-		return null;
+	public static Response getStatus() {
+		String response = NetworkUtils.getStatus();
+		Response resp = JsonUtils.fromJson(response, Response.class);
+		return resp;
 		
 	}
 }

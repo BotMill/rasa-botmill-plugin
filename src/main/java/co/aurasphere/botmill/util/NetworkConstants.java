@@ -25,8 +25,6 @@
  */
 package co.aurasphere.botmill.util;
 
-
-
 /**
  * The Class NetworkConstants.
  */
