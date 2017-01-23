@@ -4,22 +4,22 @@
 
 A Simple Java Library to access RASA NLU HTTP Endpoints for BotMill.
 
-Features  
+Features:
 
-- Access /parse, /train and /status
 - Authorization
+- Access /parse, /train and /status
 - Java Object Model from Json Endpoint Response
 
 Setup
 
 ```java
-//	setup your connection
+//	setup your connection (url and token)
 RasaBotMillContext.configure().setup("http://127.0.0.1:5000","123456789");
 
-//	Call the parse http endpoint
-Response resp = RasaService.sendParseRequest("kamusta ka na?");
+//	Call the Parse http endpoint
+Response resp = RasaService.sendParseRequest("How are you?");
 
-//	Call Train endpoint
+//	Call Training endpoint
 TrainingResponse resp = RasaService.sendTrainRequest(jsonObject.toString()); 
 TrainingResponse resp = RasaService.sendTrainFileRequest(<new File("")>);
 
@@ -27,9 +27,9 @@ TrainingResponse resp = RasaService.sendTrainFileRequest(<new File("")>);
 Response status = RasaService.getStatus(); 
 ```
 
-Get Response Entities via Response and Trainng Objects
+Get Response Entities via Response and Training Objects
 ```java
-Response resp = RasaService.sendParseRequest("kamusta ka na?");
+Response resp = RasaService.sendParseRequest("How are you?");
 resp.getIntent();
 resp.getEntities(); // list of entities
 resp.getText();
