@@ -28,7 +28,6 @@ package co.aurasphere.botmill.rasa.incoming.model;
 import java.io.Serializable;
 import java.util.List;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class Response.
  */
@@ -41,7 +40,7 @@ public class Response implements Serializable{
 	private String text;
 	
 	/** The entity. */
-	private List<Entity> entity;
+	private List<Entity> entities;
 	
 	/** The intent. */
 	private String intent;
@@ -69,8 +68,8 @@ public class Response implements Serializable{
 	 *
 	 * @return the entity
 	 */
-	public List<Entity> getEntity() {
-		return entity;
+	public List<Entity> getEntities() {
+		return entities;
 	}
 	
 	/**
@@ -78,8 +77,8 @@ public class Response implements Serializable{
 	 *
 	 * @param entity the new entity
 	 */
-	public void setEntity(List<Entity> entity) {
-		this.entity = entity;
+	public void setEntities(List<Entity> entity) {
+		this.entities = entity;
 	}
 	
 	/**
