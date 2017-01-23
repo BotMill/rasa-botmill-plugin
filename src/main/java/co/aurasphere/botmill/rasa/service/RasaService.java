@@ -25,11 +25,22 @@
  */
 package co.aurasphere.botmill.rasa.service;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+
+import com.google.gson.JsonIOException;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.google.gson.JsonSyntaxException;
+
 import co.aurasphere.botmill.rasa.incoming.model.Response;
+import co.aurasphere.botmill.rasa.incoming.model.TrainingResponse;
 import co.aurasphere.botmill.rasa.outgoing.model.Query;
 import co.aurasphere.botmill.util.JsonUtils;
 import co.aurasphere.botmill.util.NetworkUtils;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class RasaService.
  */
@@ -53,13 +64,35 @@ public class RasaService {
 	/**
 	 * Send train request.
 	 *
-	 * @param data the data
+	 * @param jsonData the json data
 	 * @return the response
 	 */
-	public static Response sendTrainRequest(Object data) {
-		String response = NetworkUtils.postTrain(data);
-		Response resp = JsonUtils.fromJson(response, Response.class);
+	public static TrainingResponse sendTrainRequest(String jsonData) {
+		String response = NetworkUtils.postTrainingString(jsonData);
+		TrainingResponse resp = JsonUtils.fromJson(response, TrainingResponse.class);
 		return resp;
+		
+	}
+	
+	/**
+	 * Send train file request.
+	 *
+	 * @param jsonFile the json file
+	 * @return the training response
+	 */
+	public static TrainingResponse sendTrainFileRequest(File jsonFile) {
+		
+		JsonParser parser = new JsonParser();
+		Object obj;
+		try {
+			obj = parser.parse(new FileReader(jsonFile));
+			JsonObject jsonObject = (JsonObject) obj;
+			TrainingResponse resp = RasaService.sendTrainRequest(jsonObject.toString());
+			return resp;
+		} catch (JsonIOException | JsonSyntaxException | FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		return null;
 		
 	}
 	

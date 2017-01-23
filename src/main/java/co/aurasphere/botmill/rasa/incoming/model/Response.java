@@ -28,6 +28,7 @@ package co.aurasphere.botmill.rasa.incoming.model;
 import java.io.Serializable;
 import java.util.List;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class Response.
  */

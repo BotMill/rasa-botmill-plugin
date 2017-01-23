@@ -64,6 +64,14 @@ public class RasaBotMillContext {
 		rasaConfig.setProtocol(serverProtocol);
 	}
 	
+	/**
+	 * Setup.
+	 *
+	 * @param serverProtocol the server protocol
+	 * @param serverUrl the server url
+	 * @param serverPort the server port
+	 * @param token the token
+	 */
 	public void setup(String serverProtocol, String serverUrl, String serverPort, String token) {
 		rasaConfig.setHost(serverUrl);
 		rasaConfig.setPort(serverPort);
@@ -80,6 +88,12 @@ public class RasaBotMillContext {
 		rasaConfig.setHost(serverUrl);
 	}
 	
+	/**
+	 * Setup.
+	 *
+	 * @param serverUrl the server url
+	 * @param token the token
+	 */
 	public void setup(String serverUrl, String token) {
 		rasaConfig.setHost(serverUrl);
 		rasaConfig.setToken(token);

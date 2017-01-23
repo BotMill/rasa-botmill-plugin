@@ -23,41 +23,32 @@
  * SOFTWARE.
  * 
  */
-package co.aurasphere.botmill.rasa.outgoing.model;
+package co.aurasphere.botmill.rasa.incoming.model;
 
-import java.io.Serializable;
-
-import com.google.gson.annotations.SerializedName;
-
-// TODO: Auto-generated Javadoc
 /**
- * The Class Query.
+ * The Class TrainingResponse.
  */
-public class Query implements Serializable {
-
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
+public class TrainingResponse {
 	
-	/** The query. */
-	@SerializedName("q")
-	private String query;
+	/** The info. */
+	private String info;
 
 	/**
-	 * Gets the query.
+	 * Gets the info.
 	 *
-	 * @return the query
+	 * @return the info
 	 */
-	public String getQuery() {
-		return query;
+	public String getInfo() {
+		return info;
 	}
 
 	/**
-	 * Sets the query.
+	 * Sets the info.
 	 *
-	 * @param query the new query
+	 * @param info the new info
 	 */
-	public void setQuery(String query) {
-		this.query = query;
+	public void setInfo(String info) {
+		this.info = info;
 	}
 	
 	

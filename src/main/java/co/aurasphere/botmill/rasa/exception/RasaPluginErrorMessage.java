@@ -23,42 +23,45 @@
  * SOFTWARE.
  * 
  */
-package co.aurasphere.botmill.rasa.outgoing.model;
+package co.aurasphere.botmill.rasa.exception;
 
 import java.io.Serializable;
 
-import com.google.gson.annotations.SerializedName;
-
 // TODO: Auto-generated Javadoc
 /**
- * The Class Query.
+ * Message which contains a {@link RasaPluginError}.
+ * 
+ * @author Alvin P. Reyes
  */
-public class Query implements Serializable {
+public class RasaPluginErrorMessage implements Serializable {
 
-	/** The Constant serialVersionUID. */
+	/**
+	 * The serial version UID.
+	 */
 	private static final long serialVersionUID = 1L;
-	
-	/** The query. */
-	@SerializedName("q")
-	private String query;
 
 	/**
-	 * Gets the query.
-	 *
-	 * @return the query
+	 * The error from Facebook.
 	 */
-	public String getQuery() {
-		return query;
+	private RasaPluginError error;
+
+	/**
+	 * Gets the {@link #error}.
+	 *
+	 * @return the {@link #error}.
+	 */
+	public RasaPluginError getError() {
+		return error;
 	}
 
 	/**
-	 * Sets the query.
+	 * Sets the {@link #error}.
 	 *
-	 * @param query the new query
+	 * @param error
+	 *            the {@link #error} to set.
 	 */
-	public void setQuery(String query) {
-		this.query = query;
+	public void setError(RasaPluginError error) {
+		this.error = error;
 	}
-	
-	
+
 }
