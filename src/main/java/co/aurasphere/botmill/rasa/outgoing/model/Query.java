@@ -29,7 +29,6 @@ import java.io.Serializable;
 
 import com.google.gson.annotations.SerializedName;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class Query.
  */

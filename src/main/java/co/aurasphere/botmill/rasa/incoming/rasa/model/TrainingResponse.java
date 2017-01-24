@@ -23,84 +23,33 @@
  * SOFTWARE.
  * 
  */
-package co.aurasphere.botmill.rasa.incoming.model;
-
-import java.io.Serializable;
-import java.util.List;
+package co.aurasphere.botmill.rasa.incoming.rasa.model;
 
 /**
- * The Class Response.
+ * The Class TrainingResponse.
  */
-public class Response implements Serializable{
+public class TrainingResponse {
 	
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
-	
-	/** The text. */
-	private String text;
-	
-	/** The entity. */
-	private List<Entity> entities;
-	
-	/** The intent. */
-	private String intent;
-	
-	/**
-	 * Gets the text.
-	 *
-	 * @return the text
-	 */
-	public String getText() {
-		return text;
-	}
-	
-	/**
-	 * Sets the text.
-	 *
-	 * @param text the new text
-	 */
-	public void setText(String text) {
-		this.text = text;
-	}
-	
-	/**
-	 * Gets the entity.
-	 *
-	 * @return the entity
-	 */
-	public List<Entity> getEntities() {
-		return entities;
-	}
-	
-	/**
-	 * Sets the entity.
-	 *
-	 * @param entity the new entity
-	 */
-	public void setEntities(List<Entity> entity) {
-		this.entities = entity;
-	}
-	
-	/**
-	 * Gets the intent.
-	 *
-	 * @return the intent
-	 */
-	public String getIntent() {
-		return intent;
-	}
-	
-	/**
-	 * Sets the intent.
-	 *
-	 * @param intent the new intent
-	 */
-	public void setIntent(String intent) {
-		this.intent = intent;
-	}
-	
-	
-	
-	
+	/** The info. */
+	private String info;
 
+	/**
+	 * Gets the info.
+	 *
+	 * @return the info
+	 */
+	public String getInfo() {
+		return info;
+	}
+
+	/**
+	 * Sets the info.
+	 *
+	 * @param info the new info
+	 */
+	public void setInfo(String info) {
+		this.info = info;
+	}
+	
+	
 }

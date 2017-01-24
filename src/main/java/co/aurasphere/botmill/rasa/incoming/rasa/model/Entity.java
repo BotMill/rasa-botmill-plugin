@@ -23,7 +23,7 @@
  * SOFTWARE.
  * 
  */
-package co.aurasphere.botmill.rasa.incoming.model;
+package co.aurasphere.botmill.rasa.incoming.rasa.model;
 
 import java.io.Serializable;
 
