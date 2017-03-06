@@ -28,6 +28,7 @@ package co.aurasphere.botmill.rasa.exception;
 import java.io.Serializable;
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * Object that represents an error from Kik.
  * 

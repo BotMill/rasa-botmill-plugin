@@ -26,19 +26,15 @@
 package co.aurasphere.botmill.rasa.service;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-
-import com.google.gson.JsonIOException;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.google.gson.JsonSyntaxException;
-
 import co.aurasphere.botmill.rasa.incoming.rasa.model.Response;
 import co.aurasphere.botmill.rasa.incoming.rasa.model.TrainingResponse;
 import co.aurasphere.botmill.rasa.outgoing.model.Query;
 import co.aurasphere.botmill.util.JsonUtils;
 import co.aurasphere.botmill.util.NetworkUtils;
+
 
 
 /**

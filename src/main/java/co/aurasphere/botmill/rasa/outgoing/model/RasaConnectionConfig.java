@@ -27,6 +27,7 @@ package co.aurasphere.botmill.rasa.outgoing.model;
 
 import java.io.Serializable;
 
+
 /**
  * The Class RasaConnectionConfig.
  */

@@ -25,6 +25,7 @@
  */
 package co.aurasphere.botmill.rasa.builder;
 
+
 /**
  * The Class QueryBuilder.
  */

@@ -28,6 +28,7 @@ package co.aurasphere.botmill.rasa.incoming.rasa.model;
 import java.io.Serializable;
 import java.util.List;
 
+
 /**
  * The Class Response.
  */

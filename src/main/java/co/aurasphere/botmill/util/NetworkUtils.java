@@ -52,6 +52,7 @@ import co.aurasphere.botmill.rasa.RasaBotMillContext;
 import co.aurasphere.botmill.rasa.exception.RasaPluginError;
 import co.aurasphere.botmill.rasa.exception.RasaPluginErrorMessage;
 
+
 /**
  * The Class NetworkUtils.
  */
@@ -269,6 +270,11 @@ public class NetworkUtils {
 		return builder.toString();
 	}
 	
+	/**
+	 * Concat token.
+	 *
+	 * @return the string
+	 */
 	private static String concatToken() {
 		if(RasaBotMillContext.getRasaConfig().getToken() != null) {
 			return "?token="+RasaBotMillContext.getRasaConfig().getToken();

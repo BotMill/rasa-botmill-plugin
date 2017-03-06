@@ -29,6 +29,7 @@ import java.io.Serializable;
 
 import com.google.gson.annotations.SerializedName;
 
+
 /**
  * The Class Query.
  */
