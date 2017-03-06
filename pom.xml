@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>co.aurasphere.botmill</groupId>
 	<artifactId>rasa-botmill-plugin</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1-SNAPSHOT</version>
 	<name>Rasa-BotMill-Plugin</name>
 	<description>Official Rasa NLU Plugin of BotMill framework</description>
 	<url>http://www.botmill.io</url>
