@@ -25,7 +25,7 @@
  */
 package co.aurasphere.botmill.util;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class NetworkConstants.
  */

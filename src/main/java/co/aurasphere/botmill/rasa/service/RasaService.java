@@ -40,7 +40,7 @@ import co.aurasphere.botmill.rasa.outgoing.model.Query;
 import co.aurasphere.botmill.util.JsonUtils;
 import co.aurasphere.botmill.util.NetworkUtils;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class RasaService.
  */

@@ -31,7 +31,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class EnumLowercaseSerializer.
  */
