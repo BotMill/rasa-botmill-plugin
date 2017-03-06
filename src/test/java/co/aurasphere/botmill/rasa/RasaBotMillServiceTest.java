@@ -44,7 +44,7 @@ public class RasaBotMillServiceTest {
 				JsonObject jsonObject = (JsonObject) obj;
 				System.out.println(jsonObject.toString());
 				RasaService.sendTrainRequest(jsonObject.toString());
-			} catch (JsonIOException | JsonSyntaxException | FileNotFoundException e) {
+			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
@@ -61,7 +61,7 @@ public class RasaBotMillServiceTest {
 		if (checkConnection()) {
 			try {
 				RasaService.sendTrainFileRequest(new File("src/test/resources/training.json"));
-			} catch (JsonIOException | JsonSyntaxException e) {
+			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}

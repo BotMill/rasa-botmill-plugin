@@ -89,7 +89,7 @@ public class RasaService {
 			JsonObject jsonObject = (JsonObject) obj;
 			TrainingResponse resp = RasaService.sendTrainRequest(jsonObject.toString());
 			return resp;
-		} catch (JsonIOException | JsonSyntaxException | FileNotFoundException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return null;
