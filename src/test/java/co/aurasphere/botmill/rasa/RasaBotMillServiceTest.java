@@ -51,7 +51,7 @@ public class RasaBotMillServiceTest {
 	 */
 	@Before
 	public void setup() {
-		RasaBotMillContext.configure().setup("http://127.0.0.1:5000","123456789");
+		RasaBotMillContext.configure().setup("http://<host>:5001","<token>");
 	}
 
 	/**
@@ -60,7 +60,8 @@ public class RasaBotMillServiceTest {
 	@Test
 	public void testParse() {
 		if (checkConnection()) {
-			Response resp = RasaService.sendParseRequest("musta ka na?");
+			Response resp = RasaService.sendParseRequest("One way flight from cyyz to uggw please");
+			System.out.println(resp.getEntities());
 			assertNotNull(resp);
 		}
 		assert (true);

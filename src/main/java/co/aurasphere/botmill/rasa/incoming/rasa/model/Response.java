@@ -44,7 +44,7 @@ public class Response implements Serializable{
 	private List<Entity> entities;
 	
 	/** The intent. */
-	private String intent;
+	private Intent intent;
 	
 	/**
 	 * Gets the text.
@@ -87,7 +87,7 @@ public class Response implements Serializable{
 	 *
 	 * @return the intent
 	 */
-	public String getIntent() {
+	public Intent getIntent() {
 		return intent;
 	}
 	
@@ -96,10 +96,19 @@ public class Response implements Serializable{
 	 *
 	 * @param intent the new intent
 	 */
-	public void setIntent(String intent) {
+	public void setIntent(Intent intent) {
 		this.intent = intent;
 	}
 	
+	
+	public String searchForEntityValue(String entityName) {
+		for (Entity ent : this.getEntities()) {
+			if (ent.getEntity().equals(entityName)) {
+				return ent.getValue();
+			}
+		}
+		return null;
+	}
 	
 	
 	
