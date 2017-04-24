@@ -26,6 +26,11 @@
 package co.aurasphere.botmill.rasa.incoming.rasa.model;
 
 import java.io.Serializable;
+import java.util.Map;
+
+import com.google.gson.annotations.SerializedName;
+
+import co.aurasphere.botmill.util.SkipDeserialization;
 
 
 
@@ -37,6 +42,8 @@ public class Entity implements Serializable {
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 	
+	private String duckling;
+	
 	/** The start. */
 	private String start;
 	
@@ -44,7 +51,8 @@ public class Entity implements Serializable {
 	private String end;
 	
 	/** The value. */
-	private String value;
+	@SkipDeserialization
+	private RasaEntityValue value;
 	
 	/** The entity. */
 	private String entity;
@@ -85,12 +93,20 @@ public class Entity implements Serializable {
 		this.end = end;
 	}
 	
+	public String getDuckling() {
+		return duckling;
+	}
+
+	public void setDuckling(String duckling) {
+		this.duckling = duckling;
+	}
+
 	/**
 	 * Gets the value.
 	 *
 	 * @return the value
 	 */
-	public String getValue() {
+	public Object getValue() {
 		return value;
 	}
 	
@@ -99,7 +115,7 @@ public class Entity implements Serializable {
 	 *
 	 * @param value the new value
 	 */
-	public void setValue(String value) {
+	public void setValue(RasaEntityValue value) {
 		this.value = value;
 	}
 	

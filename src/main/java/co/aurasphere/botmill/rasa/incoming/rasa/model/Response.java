@@ -27,25 +27,28 @@ package co.aurasphere.botmill.rasa.incoming.rasa.model;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
 
+import com.google.gson.JsonPrimitive;
+import com.google.gson.internal.LinkedTreeMap;
 
 /**
  * The Class Response.
  */
-public class Response implements Serializable{
-	
+public class Response implements Serializable {
+
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
-	
+
 	/** The text. */
 	private String text;
-	
+
 	/** The entity. */
 	private List<Entity> entities;
-	
+
 	/** The intent. */
 	private Intent intent;
-	
+
 	/**
 	 * Gets the text.
 	 *
@@ -54,16 +57,17 @@ public class Response implements Serializable{
 	public String getText() {
 		return text;
 	}
-	
+
 	/**
 	 * Sets the text.
 	 *
-	 * @param text the new text
+	 * @param text
+	 *            the new text
 	 */
 	public void setText(String text) {
 		this.text = text;
 	}
-	
+
 	/**
 	 * Gets the entity.
 	 *
@@ -72,16 +76,17 @@ public class Response implements Serializable{
 	public List<Entity> getEntities() {
 		return entities;
 	}
-	
+
 	/**
 	 * Sets the entity.
 	 *
-	 * @param entity the new entity
+	 * @param entity
+	 *            the new entity
 	 */
 	public void setEntities(List<Entity> entity) {
 		this.entities = entity;
 	}
-	
+
 	/**
 	 * Gets the intent.
 	 *
@@ -90,27 +95,41 @@ public class Response implements Serializable{
 	public Intent getIntent() {
 		return intent;
 	}
-	
+
 	/**
 	 * Sets the intent.
 	 *
-	 * @param intent the new intent
+	 * @param intent
+	 *            the new intent
 	 */
 	public void setIntent(Intent intent) {
 		this.intent = intent;
 	}
 	
-	
-	public String searchForEntityValue(String entityName) {
+	public StringEntityValue searchForStringEntityValue(String value) {
+		// if (entityName instanceof JsonPrimitive) {
 		for (Entity ent : this.getEntities()) {
-			if (ent.getEntity().equals(entityName)) {
-				return ent.getValue();
+			if (ent.getEntity().equals(value)) {
+				if (ent.getValue() instanceof StringEntityValue) {
+					return ((StringEntityValue) ent.getValue());
+				}
 			}
 		}
 		return null;
 	}
 	
-	
-	
+	public RasaEntityValue searchForDucklingValue(String value) {
+		for (Entity ent : this.getEntities()) {
+			if (ent.getEntity().equals(value)) {
+				if (ent.getValue() instanceof DucklingTimeEntityValue && ent.getDuckling() != null) {
+					return ((DucklingTimeEntityValue) ent.getValue());
+				}else if(ent.getValue() instanceof StringEntityValue && ent.getDuckling() != null) {
+					return ((StringEntityValue) ent.getValue());
+				}
+			}
+		}
+		return null;
+	}
+
 
 }

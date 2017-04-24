@@ -30,16 +30,24 @@ import static org.junit.Assert.assertNotNull;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.Map;
+
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+
+import com.google.gson.Gson;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.JsonSyntaxException;
+import com.google.gson.internal.LinkedTreeMap;
 
+import co.aurasphere.botmill.rasa.incoming.rasa.model.DucklingTimeEntityValue;
 import co.aurasphere.botmill.rasa.incoming.rasa.model.Response;
+import co.aurasphere.botmill.rasa.incoming.rasa.model.StringEntityValue;
 import co.aurasphere.botmill.rasa.service.RasaService;
+import co.aurasphere.botmill.util.JsonUtils;
 
 /**
  * The Class RasaBotMillServiceTest.
@@ -51,7 +59,7 @@ public class RasaBotMillServiceTest {
 	 */
 	@Before
 	public void setup() {
-		RasaBotMillContext.configure().setup("http://<host>:5001","<token>");
+		RasaBotMillContext.configure().setup("http://138.197.132.50:5001","3cXuFQdNBae2l/iInieT7Ud3mDVXwZUY");
 	}
 
 	/**
@@ -60,8 +68,33 @@ public class RasaBotMillServiceTest {
 	@Test
 	public void testParse() {
 		if (checkConnection()) {
-			Response resp = RasaService.sendParseRequest("One way flight from cyyz to uggw please");
-			System.out.println(resp.getEntities());
+			Response resp = RasaService.sendParseRequest("tomorrow");
+			System.out.println(resp.searchForStringEntityValue("departure_icao"));
+			System.out.println(resp.searchForDucklingValue("time").getStringValue());
+			assertNotNull(resp);
+		}
+		assert (true);
+	}
+	
+	@Test
+	public void testParseComplexDate() {
+		if (checkConnection()) {
+			Response resp = RasaService.sendParseRequest("can you setup request from uggw to cyyz tomorrow to friday?");
+			System.out.println(resp.searchForStringEntityValue("departure_icao").getStringValue());
+			System.out.println(((DucklingTimeEntityValue)resp.searchForDucklingValue("time")).getTo());
+			System.out.println(((DucklingTimeEntityValue)resp.searchForDucklingValue("time")).getFrom());
+			System.out.println(resp.searchForStringEntityValue("arrival_icao").getStringValue());
+			
+			Response resp1 = RasaService.sendParseRequest("uggw cyyz from tomorrow to friday?");
+			//System.out.println(resp1.searchForStringEntityValue("departure_icao").getStringValue());
+			System.out.println(((DucklingTimeEntityValue)resp1.searchForDucklingValue("time")).getTo());
+			System.out.println(((DucklingTimeEntityValue)resp1.searchForDucklingValue("time")).getFrom());
+			//System.out.println(resp1.searchForStringEntityValue("arrival_icao").getStringValue());
+			
+			Response resp2 = RasaService.sendParseRequest("tomorrow?");
+			//System.out.println(resp2.searchForStringEntityValue("departure_icao").getStringValue());
+			System.out.println(((StringEntityValue)resp2.searchForDucklingValue("time")).getStringValue());
+			//System.out.println(resp2.searchForStringEntityValue("arrival_icao").getStringValue());
 			assertNotNull(resp);
 		}
 		assert (true);

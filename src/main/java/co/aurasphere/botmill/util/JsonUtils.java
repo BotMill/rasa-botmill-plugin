@@ -30,6 +30,8 @@ package co.aurasphere.botmill.util;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import co.aurasphere.botmill.rasa.incoming.rasa.model.Entity;
+
 
 
 
@@ -60,7 +62,7 @@ public class JsonUtils {
 			GsonBuilder builder = new GsonBuilder();
 			// Serializes enums as lower-case.
 			builder.registerTypeHierarchyAdapter(Enum.class, new EnumLowercaseSerializer());
-			
+			builder.registerTypeAdapter(Entity.class,new EntityValueDeserializer());
 			gson = builder.create();
 		}
 		return gson;
