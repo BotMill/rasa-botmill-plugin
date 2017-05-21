@@ -68,9 +68,9 @@ public class RasaBotMillServiceTest {
 	@Test
 	public void testParse() {
 		if (checkConnection()) {
-			Response resp = RasaService.sendParseRequest("tomorrow");
-			System.out.println(resp.searchForStringEntityValue("departure_icao"));
-			System.out.println(resp.searchForDucklingValue("time").getStringValue());
+			Response resp = RasaService.sendParseRequest("CYYZ KJFK 15JUL2017 20JUN2017");
+			resp.searchForDucklingValue("time");
+			System.out.println(resp.getText());
 			assertNotNull(resp);
 		}
 		assert (true);
@@ -81,19 +81,19 @@ public class RasaBotMillServiceTest {
 		if (checkConnection()) {
 			Response resp = RasaService.sendParseRequest("can you setup request from uggw to cyyz tomorrow to friday?");
 			System.out.println(resp.searchForStringEntityValue("departure_icao").getStringValue());
-			System.out.println(((DucklingTimeEntityValue)resp.searchForDucklingValue("time")).getTo());
-			System.out.println(((DucklingTimeEntityValue)resp.searchForDucklingValue("time")).getFrom());
+			System.out.println(((DucklingTimeEntityValue)resp.searchForDucklingValue("start_date")).getTo());
+			System.out.println(((DucklingTimeEntityValue)resp.searchForDucklingValue("end_date")).getFrom());
 			System.out.println(resp.searchForStringEntityValue("arrival_icao").getStringValue());
 			
 			Response resp1 = RasaService.sendParseRequest("uggw cyyz from tomorrow to friday?");
 			//System.out.println(resp1.searchForStringEntityValue("departure_icao").getStringValue());
-			System.out.println(((DucklingTimeEntityValue)resp1.searchForDucklingValue("time")).getTo());
-			System.out.println(((DucklingTimeEntityValue)resp1.searchForDucklingValue("time")).getFrom());
+			System.out.println(((DucklingTimeEntityValue)resp1.searchForDucklingValue("start_date")).getTo());
+			System.out.println(((DucklingTimeEntityValue)resp1.searchForDucklingValue("end_date")).getFrom());
 			//System.out.println(resp1.searchForStringEntityValue("arrival_icao").getStringValue());
 			
 			Response resp2 = RasaService.sendParseRequest("tomorrow?");
 			//System.out.println(resp2.searchForStringEntityValue("departure_icao").getStringValue());
-			System.out.println(((StringEntityValue)resp2.searchForDucklingValue("time")).getStringValue());
+			System.out.println(((StringEntityValue)resp2.searchForDucklingValue("start_date")).getStringValue());
 			//System.out.println(resp2.searchForStringEntityValue("arrival_icao").getStringValue());
 			assertNotNull(resp);
 		}

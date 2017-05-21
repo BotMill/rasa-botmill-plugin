@@ -26,6 +26,7 @@
 package co.aurasphere.botmill.rasa.incoming.rasa.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -129,6 +130,20 @@ public class Response implements Serializable {
 			}
 		}
 		return null;
+	}
+	
+	public List<RasaEntityValue> searchForDucklingValues(String value) {
+		List<RasaEntityValue> values = new ArrayList<RasaEntityValue>();
+		for (Entity ent : this.getEntities()) {
+			if (ent.getEntity().equals(value)) {
+				if (ent.getValue() instanceof DucklingTimeEntityValue && ent.getDuckling() != null) {
+					values.add((DucklingTimeEntityValue) ent.getValue());
+				}else if(ent.getValue() instanceof StringEntityValue && ent.getDuckling() != null) {
+					values.add((StringEntityValue) ent.getValue());
+				}
+			}
+		}
+		return values;
 	}
 
 

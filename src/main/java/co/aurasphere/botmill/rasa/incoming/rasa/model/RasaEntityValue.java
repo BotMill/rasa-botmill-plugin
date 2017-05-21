@@ -7,6 +7,9 @@ public abstract class RasaEntityValue {
 	private String stringValue;
 
 	public String getStringValue() {
+		if(stringValue != null) {
+			return stringValue.replaceAll("^\"|\"$", "");
+		}
 		return stringValue;
 	}
 
