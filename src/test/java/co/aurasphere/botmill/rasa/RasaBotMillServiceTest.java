@@ -59,13 +59,14 @@ public class RasaBotMillServiceTest {
 	 */
 	@Before
 	public void setup() {
-		RasaBotMillContext.configure().setup("http://138.197.132.50:5001","3cXuFQdNBae2l/iInieT7Ud3mDVXwZUY");
+		RasaBotMillContext.configure().setup("http://<RASA_SERVER>:5001","<TOKEN>");
 	}
 
 	/**
 	 * Test parse.
 	 */
 	@Test
+	@Ignore
 	public void testParse() {
 		if (checkConnection()) {
 			Response resp = RasaService.sendParseRequest("CYYZ KJFK 15JUL2017 20JUN2017");
@@ -77,6 +78,7 @@ public class RasaBotMillServiceTest {
 	}
 	
 	@Test
+	@Ignore
 	public void testParseComplexDate() {
 		if (checkConnection()) {
 			Response resp = RasaService.sendParseRequest("can you setup request from uggw to cyyz tomorrow to friday?");
